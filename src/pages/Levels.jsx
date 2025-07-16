@@ -64,6 +64,6 @@ const Levels = () => {
       )}
     </div>
   );
-};
+};  
 
 export default Levels;
