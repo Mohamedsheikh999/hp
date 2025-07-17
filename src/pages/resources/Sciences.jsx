@@ -13,6 +13,9 @@ const Sciences = () => {
       type: "Premium",
       description: "Detailed notes, diagrams, and practice questions"
     },
+
+
+    
     {
       id: 2,
       title: "Chemistry Experiments",
