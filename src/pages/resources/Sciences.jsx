@@ -35,7 +35,7 @@ const Sciences = () => {
       title: "Agriculture Practicals",
       subject: "Agriculture",
       type: "Premium",
-      description: "Video demonstrations and analysis"
+      description: "Video! demonstrations and analysi!s"
     }
   ];
 
