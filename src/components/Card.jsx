@@ -1,27 +1,34 @@
+import { motion } from 'framer-motion';
+
 const Card = ({ title, description, price, isPremium, onClick }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
+    <motion.div 
+      whileHover={{ scale: 1.03 }}
+      className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+    >
       <div className="p-6">
-        <h3 className="text-xl font-bold text-black mb-2">{title}</h3>
-        <p className="text-gray-600 mb-4">{description}</p>
-        <div className="flex justify-between items-center">
-          <span className="text-lg font-semibold text-sky-400">{price}</span>
-          <button
-            onClick={onClick}
-            className={`px-4 py-2 rounded-md font-medium ${
-              isPremium
-                ? 'bg-sky-400 hover:bg-sky-500 text-white'
-                : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
-            } transition-colors`}
-          >
-            {isPremium ? 'Subscribe' : 'Get'}
-          </button>
-        </div>
         {isPremium && (
-          <div className="mt-2 text-xs text-sky-400 font-medium">PREMIUM CONTENT</div>
+          <span className="inline-block bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full mb-2">
+            PREMIUM
+          </span>
         )}
+        <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
+        <p className="text-gray-600 mb-4">{description}</p>
+        {price && (
+          <p className="text-lg font-bold text-blue-600 mb-4">{price}</p>
+        )}
+        <button
+          onClick={onClick}
+          className={`w-full py-2 px-4 rounded-lg font-medium ${
+            isPremium
+              ? 'bg-blue-600 hover:bg-blue-700 text-white'
+              : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
+          }`}
+        >
+          {isPremium ? 'Subscribe to Access' : 'View Free Content'}
+        </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
