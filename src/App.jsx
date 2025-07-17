@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import PageWrapper from './components/PageWrapper';
 import Home from './pages/Home';
@@ -10,10 +10,12 @@ import SignUp from './pages/SignUp';
 import PrivacyPolicy from "./policies/PrivacyPolicy";
 import TermsOfService from "./policies/TermsOfService";
 import RefundPolicy from "./policies/RefundPolicy";
+// import CartPage if you have it
+// import CartPage from './pages/CartPage';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className="min-h-screen bg-white">
         <Navbar />
         <PageWrapper>
@@ -27,10 +29,12 @@ function App() {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/refund" element={<RefundPolicy />} />
+            {/* Uncomment the next line if CartPage exists */}
+            {/* <Route path="/cart" element={<CartPage />} /> */}
           </Routes>
         </PageWrapper>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
