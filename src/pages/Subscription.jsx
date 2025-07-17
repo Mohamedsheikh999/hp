@@ -1,61 +1,61 @@
-const plans = [
-  {
-    name: 'Basic',
-    price: 'KSH 500',
-    period: 'month',
-    features: [
-      'Access to all free exams',
-      '5 premium exams per month',
-      'Email support'
-    ],
-    buttonText: 'Get Started'
-  },
-  {
-    name: 'Standard',
-    price: 'KSH 1,000',
-    period: 'month',
-    features: [
-      'Access to all free exams',
-      '15 premium exams per month',
-      'Priority email support',
-      'Downloadable solutions'
-    ],
-    buttonText: 'Popular Choice',
-    popular: true
-  },
-  {
-    name: 'Premium',
-    price: 'KSH 1,500',
-    period: 'month',
-    features: [
-      'Unlimited access to all exams',
-      'Detailed video solutions',
-      '24/7 priority support',
-      'Downloadable materials',
-      'Personalized study plans'
-    ],
-    buttonText: 'Best Value'
-  }
-];
-
-const faqs = [
-  {
-    question: 'How do I cancel my subscription?',
-    answer: 'You can cancel anytime from your account settings.'
-  },
-  {
-    question: 'Is there a free trial?',
-    answer: 'Yes, we offer a 7-day free trial for new users.'
-  },
-  {
-    question: 'What payment methods do you accept?',
-    answer: 'We accept M-Pesa, credit cards, and bank transfers.'
-  }
-];
-
 const Subscription = () => {
+  const plans = [
+    {
+      name: 'Basic',
+      price: 'KSH 500',
+      period: 'month',
+      features: [
+        'Access to all free exams',
+        '5 premium exams per month',
+        'Email support'
+      ],
+      buttonText: 'Get Started'
+    },
+    {
+      name: 'Standard',
+      price: 'KSH 1,000',
+      period: 'month',
+      features: [
+        'Access to all free exams',
+        '15 premium exams per month',
+        'Priority email support',
+        'Downloadable solutions'
+      ],
+      buttonText: 'Popular Choice',
+      popular: true
+    },
+    {
+      name: 'Premium',
+      price: 'KSH 1,500',
+      period: 'month',
+      features: [
+        'Unlimited access to all exams',
+        'Detailed video solutions',
+        '24/7 priority support',
+        'Downloadable materials',
+        'Personalized study plans'
+      ],
+      buttonText: 'Best Value'
+    }
+  ];
+
+  const faqs = [
+    {
+      question: 'How do I cancel my subscription?',
+      answer: 'You can cancel anytime from your account settings.'
+    },
+    {
+      question: 'Is there a free trial?',
+      answer: 'Yes, we offer a 7-day free trial for new users.'
+    },
+    {
+      question: 'What payment methods do you accept?',
+      answer: 'We accept M-Pesa, credit cards, and bank transfers.'
+    }
+  ];
+
   return (
-    <div>
+    <div className="max-w-7xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-black mb-2">Subscription Plans</h1>
       <p className="text-sky-400 mb-8">Choose the plan that fits your needs</p>
 
