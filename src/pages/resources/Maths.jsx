@@ -1,40 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { mathsData } from "../Resources/ResourcesData";
 
 const Maths = () => {
   const { form } = useParams();
   const formName = form.replace('-', ' ').toUpperCase();
-
-  const mathResources = [
-    {
-      id: 1,
-      title: "Algebra Fundamentals",
-      topic: "Algebra",
-      type: "Free",
-      description: "Basic to intermediate algebra concepts"
-    },
-    {
-      id: 2,
-      title: "Geometry Masterclass",
-      topic: "Geometry",
-      type: "Premium",
-      description: "Advanced geometry with proofs and solutions"
-    },
-    {
-      id: 3,
-      title: "Trigonometry Guide",
-      topic: "Trigonometry",
-      type: "Free",
-      description: "All trigonometric formulas and applications"
-    },
-    {
-      id: 4,
-      title: "Calculus Workbook",
-      topic: "Calculus",
-      type: "Premium",
-      description: "Step-by-step calculus problems and solutions"
-    }
-  ];
+  const resources = mathsData[form] || [];
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -42,8 +13,8 @@ const Maths = () => {
       <p className="text-orange-500 mb-8">Algebra, Geometry, Calculus and more</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {mathResources.map((resource) => (
-          <div key={resource.id} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        {resources.map((resource) => (
+          <div key={resource.id} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
             <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium mb-2 ${
               resource.topic === 'Algebra' ? 'bg-blue-100 text-blue-800' :
               resource.topic === 'Geometry' ? 'bg-green-100 text-green-800' :
@@ -68,6 +39,44 @@ const Maths = () => {
             )}
           </div>
         ))}
+      </div>
+
+      <div className="mt-12 bg-orange-50 p-6 rounded-lg border border-orange-100">
+        <h3 className="text-xl font-semibold text-black mb-4">{formName} Math Focus Areas</h3>
+        <ul className="space-y-3">
+          {form === 'form-1' && (
+            <>
+              <li className="flex items-start">
+                <svg className="w-5 h-5 text-orange-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Master basic arithmetic operations
+              </li>
+              <li className="flex items-start">
+                <svg className="w-5 h-5 text-orange-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Understand simple algebraic expressions
+              </li>
+            </>
+          )}
+          {form === 'form-4' && (
+            <>
+              <li className="flex items-start">
+                <svg className="w-5 h-5 text-orange-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Focus on KCSE exam techniques and time management
+              </li>
+              <li className="flex items-start">
+                <svg className="w-5 h-5 text-orange-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Practice with 5+ years of past papers
+              </li>
+            </>
+          )}
+        </ul>
       </div>
     </div>
   );

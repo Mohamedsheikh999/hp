@@ -1,43 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { sciencesData } from '../Resources/ResourcesData';
 
 const Sciences = () => {
   const { form } = useParams();
   const formName = form.replace('-', ' ').toUpperCase();
-
-  const scienceResources = [
-    {
-      id: 1,
-      title: "Biology Complete Guide",
-      subject: "Biology",
-      type: "Premium",
-      description: "Detailed notes, diagrams, and practice questions"
-    },
-
-
-    
-    {
-      id: 2,
-      title: "Chemistry Experiments",
-      subject: "Chemistry",
-      type: "Free",
-      description: "Common experiments with step-by-step guides"
-    },
-    {
-      id: 3,
-      title: "Physics Formulas",
-      subject: "Physics",
-      type: "Free",
-      description: "All essential formulas with explanations"
-    },
-    {
-      id: 4,
-      title: "Agriculture Practicals",
-      subject: "Agriculture",
-      type: "Premium",
-      description: "Video! demonstrations and analysi!s"
-    }
-  ];
+  const resources = sciencesData[form] || [];
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -45,7 +13,7 @@ const Sciences = () => {
       <p className="text-green-500 mb-8">Biology, Chemistry, Physics and Agriculture resources</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {scienceResources.map((resource) => (
+        {resources.map((resource) => (
           <div key={resource.id} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
             <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium mb-2 ${
               resource.subject === 'Biology' ? 'bg-green-100 text-green-800' :

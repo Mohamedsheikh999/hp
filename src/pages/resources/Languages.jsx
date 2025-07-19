@@ -1,40 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { languagesData } from '../Resources/ResourcesData';
 
 const Languages = () => {
   const { form } = useParams();
   const formName = form.replace('-', ' ').toUpperCase();
-
-  const languageResources = [
-    {
-      id: 1,
-      title: "English Grammar Guide",
-      language: "English",
-      type: "Free",
-      description: "Comprehensive grammar rules and exercises"
-    },
-    {
-      id: 2,
-      title: "Kiswahili Fasihi",
-      language: "Kiswahili",
-      type: "Premium",
-      description: "In-depth analysis of set texts and poetry"
-    },
-    {
-      id: 3,
-      title: "Oral Skills Practice",
-      language: "English",
-      type: "Free",
-      description: "Listening and speaking exercises"
-    },
-    {
-      id: 4,
-      title: "Kiswahili Sarufi",
-      language: "Kiswahili",
-      type: "Premium",
-      description: "Advanced grammar and composition techniques"
-    }
-  ];
+  const resources = languagesData[form] || [];
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -42,8 +13,8 @@ const Languages = () => {
       <p className="text-purple-500 mb-8">English, Kiswahili and other language materials</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {languageResources.map((resource) => (
-          <div key={resource.id} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        {resources.map((resource) => (
+          <div key={resource.id} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
             <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium mb-2 ${
               resource.language === 'English' ? 'bg-red-100 text-red-800' : 'bg-yellow-100 text-yellow-800'
             }`}>
@@ -65,6 +36,44 @@ const Languages = () => {
             )}
           </div>
         ))}
+      </div>
+
+      <div className="mt-12 bg-purple-50 p-6 rounded-lg border border-purple-100">
+        <h3 className="text-xl font-semibold text-black mb-4">Language Learning Tips for {formName}</h3>
+        <ul className="space-y-3">
+          {form === 'form-1' && (
+            <>
+              <li className="flex items-start">
+                <svg className="w-5 h-5 text-purple-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Focus on building basic vocabulary in both English and Kiswahili
+              </li>
+              <li className="flex items-start">
+                <svg className="w-5 h-5 text-purple-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Practice simple sentence construction daily
+              </li>
+            </>
+          )}
+          {form === 'form-4' && (
+            <>
+              <li className="flex items-start">
+                <svg className="w-5 h-5 text-purple-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Master KCSE exam techniques for language papers
+              </li>
+              <li className="flex items-start">
+                <svg className="w-5 h-5 text-purple-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Practice with past papers under timed conditions
+              </li>
+            </>
+          )}
+        </ul>
       </div>
     </div>
   );
