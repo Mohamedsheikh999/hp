@@ -82,7 +82,7 @@ const Home = () => {
                 <span className="text-6xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800 relative inline-block">
                   <span className="absolute -inset-1 bg-blue-800/20 blur-xl rounded-lg"></span>
                   <span className="relative">
-                    <span className="text-shadow-3d">Hawai Products</span>
+                    <span className="text-shadow-3d">Hawai Academy</span>
                   </span>
                 </span>
               </h1>

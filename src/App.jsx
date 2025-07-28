@@ -15,6 +15,15 @@ import Sciences from './pages/resources/Sciences';
 import Languages from './pages/resources/Languages';
 import Maths from './pages/resources/Maths';
 
+
+// Admin dashboard imports
+import DashboardLayout from './dashboard/DashboardLayout';
+import ClassLevels from './dashboard/ClassLevels';
+import Subjects from './dashboard/Subjects';
+import Categories from './dashboard/Categories';
+import ContentItems from './dashboard/ContentItems';
+
+
 function App() {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
@@ -23,6 +32,7 @@ function App() {
         <main className="flex-grow">
           <PageWrapper>
             <Routes>
+               {/* Public routes */}
               <Route path="/" element={<Home />} />
               <Route path="/exams" element={<Exams />} />
               <Route path="/levels" element={<Levels />} />
@@ -36,6 +46,15 @@ function App() {
               <Route path="/resources/:form/sciences" element={<Sciences />} />
               <Route path="/resources/:form/languages" element={<Languages />} />
               <Route path="/resources/:form/maths" element={<Maths />} />
+
+              {/* Admin dashboard routes */}
+              <Route path="/admin" element={<DashboardLayout />}>
+                <Route path="class-levels" element={<ClassLevels />} />
+                <Route path="subjects" element={<Subjects />} />
+                <Route path="categories" element={<Categories />} />
+                <Route path="contents" element={<ContentItems />} />
+              </Route>
+
             </Routes>
           </PageWrapper>
         </main>
